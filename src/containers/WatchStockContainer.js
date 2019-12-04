@@ -24,7 +24,7 @@ export class WatchStockContainer extends React.Component {
       .ref("watching")
       .once("value")
       .then(snapshot => {
-        if (snapshot.val().length > 0) {
+        if (snapshot.val()) {
           snapshot.val().map(stock => {
             if (
               new Date(new Date().getTime() - 15 * 60000).getTime() >
