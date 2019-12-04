@@ -33,6 +33,7 @@ export class TableListItemContainer extends React.Component {
   };
 
   toWatchAsync = async () => {
+    console.log(this.props);
     await this.props.addWatch({
       symbol: this.props.symbol,
       companyName: this.props.companyName,
@@ -40,7 +41,10 @@ export class TableListItemContainer extends React.Component {
       volume:
         this.props.volume === null ? this.props.iexVolume : this.props.volume,
       previousClose: this.props.previousClose,
-      latestUpdate: this.props.latestUpdate
+      latestUpdate: this.props.latestUpdate,
+      ytdChange: this.props.ytdChange,
+      week52High: this.props.week52High,
+      week52Low: this.props.week52Low
     });
     return await this.props.watch;
   };

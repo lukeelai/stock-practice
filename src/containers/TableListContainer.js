@@ -1,9 +1,15 @@
 import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
+
+//Actions
 import { addStock } from "../actions/stocks";
 import { sortBySymbol, sortByChange, sortByPrice } from "../actions/filters";
+
+//Components
 import TableList from "../components/Top10/TableList";
+
+//Selector
 import stockSelector from "../selectors/stocks";
 
 export class TabeListContainer extends React.Component {
