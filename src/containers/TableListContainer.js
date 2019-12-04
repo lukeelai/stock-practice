@@ -24,8 +24,11 @@ export class TabeListContainer extends React.Component {
         header: { header }
       })
       .then(result => {
-        if (!result.data.some(item => item.symbol === this.props.symbol))
-          result.data.map(stock => {
+        const filtered = result.data.filter(result => {
+          return result != null;
+        });
+        if (!filtered.some(item => item.symbol === this.props.symbol))
+          filtered.map(stock => {
             this.props.addStock(stock);
             return this.props.stocks;
           });
@@ -63,7 +66,9 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  { addStock, sortBySymbol, sortByChange, sortByPrice }
-)(TabeListContainer);
+export default connect(mapStateToProps, {
+  addStock,
+  sortBySymbol,
+  sortByChange,
+  sortByPrice
+})(TabeListContainer);
