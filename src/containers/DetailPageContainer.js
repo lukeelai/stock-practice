@@ -10,7 +10,7 @@ import DetailPage from "../components/Detail/DetailPage";
 
 class DetailPageContainer extends React.Component {
   componentDidMount = () => {
-    // this.getStock(this.props.location.symbol);
+    this.getStock(this.props.location.symbol);
   };
 
   getStock = stock => {
@@ -35,21 +35,24 @@ class DetailPageContainer extends React.Component {
         else this.props.addDetail(["no data"]);
       })
       .catch(e => {
-        alert(e);
+        e.toString().includes("402") ? alert("Request limit hit") : alert(e);
+        if (window.location.pathname !== "/") window.location.href = "/";
       });
   };
 
   //more details
   render() {
     //process the charts
-    let monthlyChart = this.props.details[0].chart.filter((chart, index) => {
-      return (
-        !index ||
-        chart.date.split("-")[1] !==
-          this.props.details[0].chart[index - 1].date.split("-")[1] ||
-        index === this.props.details[0].chart.length - 1
-      );
-    });
+    let monthlyChart = this.props.details[0]
+      ? this.props.details[0].chart.filter((chart, index) => {
+          return (
+            !index ||
+            chart.date.split("-")[1] !==
+              this.props.details[0].chart[index - 1].date.split("-")[1] ||
+            index === this.props.details[0].chart.length - 1
+          );
+        })
+      : [];
     monthlyChart = monthlyChart.map(chart => {
       return { x: chart.label.split(" ")[0], y: chart.open };
     });

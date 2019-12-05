@@ -40,7 +40,8 @@ export class TabeListContainer extends React.Component {
           });
       })
       .catch(e => {
-        console.log(e);
+        e.toString().includes("402") ? alert("Request limit hit") : alert(e);
+        if (window.location.pathname !== "/") window.location.href = "/";
       });
   }
   onClickSymbol = () => {
