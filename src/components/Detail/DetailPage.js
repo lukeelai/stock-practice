@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Card, CardHeader, CardBody } from "reactstrap";
+import { VictoryBar, VictoryLabel, VictoryChart } from "victory";
 
 //Containers
 import StockDetailContainer from "../../containers/StockDetailContainer";
@@ -23,6 +24,19 @@ const DetailPage = props => {
                 <CardBody>
                   <StockDetailContainer symbol={props.location.symbol} />
                 </CardBody>
+              </Card>
+              <Card>
+                <VictoryChart minDomain={{ x: 0 }}>
+                  <VictoryBar
+                    data={[
+                      { x: 1, y: 2 },
+                      { x: 2, y: 3 },
+                      { x: 3, y: 5 },
+                      { x: 4, y: 4 },
+                      { x: 5, y: 6 }
+                    ]}
+                  />
+                </VictoryChart>
               </Card>
             </Row>
           </Container>
