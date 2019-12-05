@@ -10,11 +10,10 @@ import StockDetailYTD from "./StockDetailYTD";
 import StockDetail52Low from "./StockDetail52Low";
 import StockDetail52High from "./StockDetail52High";
 import StockDetailUpdate from "./StockDetailUpdate";
-import StockDetailNews from "./StockDetailNews";
 
 const StockDetail = props => {
   return (
-    <div>
+    <div className="row">
       <Table>
         <tbody>
           <StockDetailPrice {...props} />
@@ -27,7 +26,6 @@ const StockDetail = props => {
           <StockDetailUpdate {...props} />
         </tbody>
       </Table>
-      <StockDetailNews {...props} />
     </div>
   );
 };

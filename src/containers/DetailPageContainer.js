@@ -10,7 +10,7 @@ import DetailPage from "../components/Detail/DetailPage";
 
 class DetailPageContainer extends React.Component {
   componentDidMount = () => {
-    this.getStock(this.props.location.symbol);
+    // this.getStock(this.props.location.symbol);
   };
 
   getStock = stock => {
@@ -23,7 +23,7 @@ class DetailPageContainer extends React.Component {
     const params = {
       token: process.env.REACT_APP_API_KEY
     };
-    const uri = `https://cloud.iexapis.com/stable/stock/${stock}/batch?types=quote,news,chart&range=5y&last=10`;
+    const uri = `https://cloud.iexapis.com/stable/stock/${stock}/batch?types=quote,news,chart&range=1y&last=10`;
 
     axios
       .get(uri, {
@@ -35,7 +35,7 @@ class DetailPageContainer extends React.Component {
         else this.props.addDetail(["no data"]);
       })
       .catch(e => {
-        alert(e, "please enter a valid stock");
+        alert(e);
       });
   };
 
