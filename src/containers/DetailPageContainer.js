@@ -41,7 +41,19 @@ class DetailPageContainer extends React.Component {
 
   //more details
   render() {
-    return <DetailPage {...this.props} />;
+    //process the charts
+    let monthlyChart = this.props.details[0].chart.filter((chart, index) => {
+      return (
+        !index ||
+        chart.date.split("-")[1] !==
+          this.props.details[0].chart[index - 1].date.split("-")[1] ||
+        index === this.props.details[0].chart.length - 1
+      );
+    });
+    monthlyChart = monthlyChart.map(chart => {
+      return { x: chart.label.split(" ")[0], y: chart.open };
+    });
+    return <DetailPage {...this.props} monthlyChart={monthlyChart} />;
   }
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Card, CardHeader, CardBody } from "reactstrap";
-import { VictoryBar, VictoryAxis, VictoryChart } from "victory";
+import { VictoryLine, VictoryAxis, VictoryChart } from "victory";
 
 //Containers
 import StockDetailContainer from "../../containers/StockDetailContainer";
@@ -26,27 +26,25 @@ const DetailPage = props => {
                 </CardBody>
               </Card>
               <Card>
-                <VictoryChart minDomain={{ x: 0 }}>
-                  <VictoryBar
-                    data={[
-                      { x: 1, y: 2 },
-                      { x: 2, y: 3 },
-                      { x: 3, y: 5 },
-                      { x: 4, y: 4 },
-                      { x: 5, y: 6 }
-                    ]}
+                <CardHeader>
+                  <h3 className="text-center">1 Year Graph</h3>
+                </CardHeader>
+                <VictoryChart>
+                  <VictoryLine
+                    data={props.monthlyChart}
+                    style={
+                      props.monthlyChart[0] >
+                      props.monthlyChart[props.monthlyChart.length - 1]
+                        ? {
+                            data: { stroke: "#00b300" }
+                          }
+                        : {
+                            data: { stroke: "#c43a31" }
+                          }
+                    }
                   />
-                  <VictoryAxis
-                    label="Months"
-                    tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
-                    minDomain={{ x: 0 }}
-                  />
-                  <VictoryAxis
-                    dependentAxis
-                    label="Price"
-                    tickValues={[1, 2, 3, 4, 5, 6]}
-                    minDomain={{ y: 0 }}
-                  />
+                  <VictoryAxis />
+                  <VictoryAxis dependentAxis orientation="left" />
                 </VictoryChart>
               </Card>
             </Row>
