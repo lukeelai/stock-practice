@@ -16,7 +16,9 @@ const DetailPage = props => {
             <Row>
               <Card>
                 <CardHeader>
-                  {props.location.symbol} - {props.location.name}
+                  <h3>
+                    {props.location.symbol} - {props.location.name}
+                  </h3>
                 </CardHeader>
                 <CardBody>
                   <StockDetailContainer symbol={props.location.symbol} />
