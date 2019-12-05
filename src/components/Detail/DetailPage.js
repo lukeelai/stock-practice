@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col, Card, CardHeader, CardBody } from "reactstrap";
-import { VictoryBar, VictoryLabel, VictoryChart } from "victory";
+import { VictoryBar, VictoryAxis, VictoryChart } from "victory";
 
 //Containers
 import StockDetailContainer from "../../containers/StockDetailContainer";
@@ -35,6 +35,17 @@ const DetailPage = props => {
                       { x: 4, y: 4 },
                       { x: 5, y: 6 }
                     ]}
+                  />
+                  <VictoryAxis
+                    label="Months"
+                    tickValues={[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]}
+                    minDomain={{ x: 0 }}
+                  />
+                  <VictoryAxis
+                    dependentAxis
+                    label="Price"
+                    tickValues={[1, 2, 3, 4, 5, 6]}
+                    minDomain={{ y: 0 }}
                   />
                 </VictoryChart>
               </Card>
