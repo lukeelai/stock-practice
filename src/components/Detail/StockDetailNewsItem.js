@@ -4,7 +4,7 @@ const StockDetailNewsItem = props => {
   return (
     <div className="container" key={props.key}>
       <h3 className="row">
-        <a href={props.url} target="_blank">
+        <a href={props.url} target="_blank" rel="noopener noreferrer">
           {props.headline}
         </a>
       </h3>

@@ -9,7 +9,7 @@ import StockDetailNews from "./StockDetailNews";
 const DetailPage = props => {
   return (
     <div className="container">
-      <div className="row">
+      <div className="row justify-content-start">
         <h3>
           {props.location.symbol} - {props.location.name}
         </h3>
