@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Row, Col } from "reactstrap";
 
 //Containers
 import StockDetailContainer from "../../containers/StockDetailContainer";
@@ -8,15 +9,17 @@ import StockDetailNews from "./StockDetailNews";
 
 const DetailPage = props => {
   return (
-    <div className="container">
-      <div className="row justify-content-start">
-        <h3>
-          {props.location.symbol} - {props.location.name}
-        </h3>
-      </div>
+    <Container>
+      <Row className="justify-content-start">
+        <Col className="text-align-left">
+          <h3>
+            {props.location.symbol} - {props.location.name}
+          </h3>
+        </Col>
+      </Row>
       <StockDetailContainer symbol={props.location.symbol} />
       <StockDetailNews {...props} />
-    </div>
+    </Container>
   );
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "reactstrap";
+import { Table, Row } from "reactstrap";
 
 //Components
 import StockDetailPrice from "./StockDetailPrice";
@@ -13,7 +13,7 @@ import StockDetailUpdate from "./StockDetailUpdate";
 
 const StockDetail = props => {
   return (
-    <div className="row">
+    <Row>
       <Table>
         <tbody>
           <StockDetailPrice {...props} />
@@ -26,7 +26,7 @@ const StockDetail = props => {
           <StockDetailUpdate {...props} />
         </tbody>
       </Table>
-    </div>
+    </Row>
   );
 };
 

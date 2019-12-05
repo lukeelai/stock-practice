@@ -1,4 +1,5 @@
 import React from "react";
+import { Container, Row } from "reactstrap";
 
 //Components
 import StockDetailNewsItem from "./StockDetailNewsItem";
@@ -8,11 +9,14 @@ const StockDetailNews = props => {
     return detail.quote.symbol === props.location.symbol;
   });
   return (
-    <div className="container">
-      <h1 className="row">
-        {stockDetails.length > 0 ? stockDetails[0].quote.companyName : ""} News
-      </h1>
-      <div className="row">
+    <Container>
+      <Row>
+        <h1>
+          {stockDetails.length > 0 ? stockDetails[0].quote.companyName : ""}{" "}
+          News
+        </h1>
+      </Row>
+      <Row>
         {stockDetails.length > 0 ? (
           stockDetails[0].news.map(news => {
             return (
@@ -25,8 +29,8 @@ const StockDetailNews = props => {
         ) : (
           <></>
         )}
-      </div>
-    </div>
+      </Row>
+    </Container>
   );
 };
 
