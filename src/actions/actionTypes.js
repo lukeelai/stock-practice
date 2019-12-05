@@ -20,3 +20,7 @@ export const REMOVE_WATCH = "REMOVE_WATCH";
 // export const SORT_BY_SYMBOL = "SORT_BY_SYMBOL";
 // export const SORT_BY_PRICE = "SORT_BY_PRICE";
 export const SORT_BY_VOLUME = "SORT_BY_VOLUME";
+
+//DETAILS
+export const ADD_DETAIL = "ADD_DETAIL";
+export const REMOVE_DETAIL = "REMOVE_DETAIL";

@@ -10,21 +10,25 @@ import StockDetailYTD from "./StockDetailYTD";
 import StockDetail52Low from "./StockDetail52Low";
 import StockDetail52High from "./StockDetail52High";
 import StockDetailUpdate from "./StockDetailUpdate";
+import StockDetailNews from "./StockDetailNews";
 
 const StockDetail = props => {
   return (
-    <Table>
-      <tbody>
-        <StockDetailPrice {...props} />
-        <StockDetailPercent {...props} />
-        <StockDetailClose {...props} />
-        <StockDetailPE {...props} />
-        <StockDetailYTD {...props} />
-        <StockDetail52Low {...props} />
-        <StockDetail52High {...props} />
-        <StockDetailUpdate {...props} />
-      </tbody>
-    </Table>
+    <div>
+      <Table>
+        <tbody>
+          <StockDetailPrice {...props} />
+          <StockDetailPercent {...props} />
+          <StockDetailClose {...props} />
+          <StockDetailPE {...props} />
+          <StockDetailYTD {...props} />
+          <StockDetail52Low {...props} />
+          <StockDetail52High {...props} />
+          <StockDetailUpdate {...props} />
+        </tbody>
+      </Table>
+      <StockDetailNews {...props} />
+    </div>
   );
 };
 

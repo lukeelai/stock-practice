@@ -21,7 +21,8 @@ class StockDetailContainer extends React.Component {
 const mapStateToProps = (state, props) => {
   return {
     stocks: state.stocks.filter(stock => stock.symbol === props.symbol),
-    watch: state.watch.filter(stock => stock.symbol === props.symbol)
+    watch: state.watch.filter(stock => stock.symbol === props.symbol),
+    details: state.details
   };
 };
 
