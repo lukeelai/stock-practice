@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row, Col, Card, CardHeader, CardBody } from "reactstrap";
 
 //Containers
 import StockDetailContainer from "../../containers/StockDetailContainer";
@@ -10,15 +10,25 @@ import StockDetailNews from "./StockDetailNews";
 const DetailPage = props => {
   return (
     <Container>
-      <Row className="justify-content-start">
-        <Col className="text-align-left">
-          <h3>
-            {props.location.symbol} - {props.location.name}
-          </h3>
+      <Row>
+        <Col>
+          <Container className="d-flex justify-content-start">
+            <Row>
+              <Card>
+                <CardHeader>
+                  {props.location.symbol} - {props.location.name}
+                </CardHeader>
+                <CardBody>
+                  <StockDetailContainer symbol={props.location.symbol} />
+                </CardBody>
+              </Card>
+            </Row>
+          </Container>
+        </Col>
+        <Col>
+          <StockDetailNews {...props} />
         </Col>
       </Row>
-      <StockDetailContainer symbol={props.location.symbol} />
-      <StockDetailNews {...props} />
     </Container>
   );
 };
